@@ -1,0 +1,66 @@
+<div class="row mb-4">
+
+  <div class="col-md-3">
+    <div class="stat-card">
+      <h6>Total Trips</h6>
+      <h3>{{ totalTrips }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="stat-card">
+      <h6>Completed Trips</h6>
+      <h3>{{ completedTrips }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="stat-card">
+      <h6>Total Drivers</h6>
+      <h3>{{ totalDrivers }}</h3>
+    </div>
+  </div>
+
+  <div class="col-md-3">
+    <div class="stat-card">
+      <h6>Active Drivers</h6>
+      <h3>{{ activeDrivers }}</h3>
+    </div>
+  </div>
+
+</div>
+
+<h5 class="mb-3">Recent Trips</h5>
+
+<div class="row">
+
+  <div class="col-md-4 mb-3" *ngFor="let trip of recentTrips">
+
+    <div class="trip-card">
+
+      <div class="status-badge" [ngClass]="trip.status">
+        {{ trip.status }}
+      </div>
+
+      <div class="route">
+        {{ trip.pickupLocation }} → {{ trip.dropLocation }}
+      </div>
+
+      <div class="customer mt-2">
+        <strong>{{ trip.customerName }}</strong>
+        <p>{{ trip.customerPhone }}</p>
+      </div>
+
+      <div *ngIf="trip.driverId" class="driver mt-2">
+        🚗 {{ trip.driverId.name }}
+      </div>
+
+      <div class="trip-footer mt-2">
+        <small>{{ trip.createdAt | date:'short' }}</small>
+      </div>
+
+    </div>
+
+  </div>
+
+</div>

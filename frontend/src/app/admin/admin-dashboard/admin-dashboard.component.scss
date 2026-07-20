@@ -1,0 +1,29 @@
+/* Stats Cards */
+.stat-card {
+  background: #021D49;
+  color: #fff;
+  padding: 20px;
+  border-radius: 15px;
+  text-align: center;
+
+  h6 {
+    opacity: 0.8;
+  }
+
+  h3 {
+    margin-top: 10px;
+    font-weight: bold;
+  }
+}
+
+/* Trip Cards (reuse your existing styles) */
+.trip-card {
+  background: #fff;
+  border-radius: 15px;
+  padding: 15px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+}
+
+/* Status */
+.status-badge.CREATED { background: #0ABD67; }
+.status-badge.COMPLETED { background: #021D49; }

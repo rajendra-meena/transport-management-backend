@@ -1,0 +1,144 @@
+/* Wrapper */
+.wrapper {
+  height: 100vh;
+  overflow: hidden;
+}
+
+/* Sidebar */
+.sidebar {
+  width: 260px;
+  background: #021D49;
+  transition: all 0.3s ease;
+  display: flex;
+  flex-direction: column;
+
+  .logo {
+    font-weight: bold;
+    color: #fff;
+  }
+
+  /* Nav Links */
+  .nav-link {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+    color: #cfd8dc;
+    border-radius: 8px;
+    margin: 6px 10px;
+    padding: 10px 12px;
+    transition: all 0.2s ease;
+
+    i {
+      width: 22px;
+      text-align: center;
+      font-size: 16px;
+    }
+
+    span {
+      margin-left: 10px;
+    }
+
+    &:hover {
+      background: #0ABD67;
+      color: #fff;
+    }
+
+    &.active {
+      background: #0ABD67;
+      color: #fff;
+      font-weight: 500;
+    }
+  }
+
+  /* Logout special */
+  .nav-link.text-danger:hover {
+    background: rgba(255, 0, 0, 0.1);
+    color: #ff4d4f;
+  }
+}
+
+/* Collapsed Sidebar */
+.sidebar.collapsed {
+  width: 80px;
+}
+
+.sidebar.collapsed .nav-link {
+  justify-content: center;
+}
+
+.sidebar.collapsed .nav-link span {
+  display: none;
+}
+
+.sidebar.collapsed .nav-link i {
+  font-size: 18px;
+}
+
+/* Main Content */
+.main {
+  background: #f5f7fa;
+  width: 100%;
+  transition: all 0.3s ease;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.content-area {
+  flex-grow: 1;
+  overflow-y: auto;
+}
+
+/* Navbar */
+.navbar {
+  height: 60px;
+}
+
+/* Toggle Button */
+.toggle-btn {
+  border: none;
+  font-size: 20px;
+  background: transparent;
+}
+
+.toggle-btn:focus {
+  box-shadow: none;
+}
+
+/* Badge */
+.badge {
+  font-size: 10px;
+  padding: 4px 6px;
+  border-radius: 10px;
+}
+
+.nav-link.active {
+  position: relative;
+}
+
+.nav-link.active::before {
+  content: '';
+  position: absolute;
+  left: -10px;
+  top: 5px;
+  height: 70%;
+  width: 4px;
+  background: #0ABD67;
+  border-radius: 4px;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .sidebar {
+    position: fixed;
+    z-index: 1000;
+    height: 100%;
+    left: 0;
+    top: 0;
+  }
+
+  .sidebar.collapsed {
+    margin-left: -260px;
+  }
+}

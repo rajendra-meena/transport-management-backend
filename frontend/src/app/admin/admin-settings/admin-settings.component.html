@@ -1,0 +1,161 @@
+<div class="alert-wrapper">
+
+<div
+*ngFor="let alert of alerts"
+
+class="custom-alert"
+
+[class.success]="alert.type==='success'"
+
+[class.error]="alert.type==='error'">
+
+<div class="alert-content">
+
+<span class="icon">
+
+{{ alert.type === 'success' ? '✓' : '⚠' }}
+
+</span>
+
+<span>
+
+{{ alert.message }}
+
+</span>
+
+</div>
+
+<button
+class="close-btn"
+(click)="removeAlert(alert)">
+
+×
+
+</button>
+
+</div>
+
+</div>
+
+<div class="container py-4">
+
+<form [formGroup]="fareForm">
+
+<div class="config-card">
+
+    <div class="config-header">
+        <div>
+            <h3>Fare Configuration</h3>
+            <p>Manage fare and commission settings</p>
+        </div>
+
+        <button
+            type="button"
+            class="save-btn"
+            (click)="updateFare()">
+
+            Update Settings
+
+        </button>
+    </div>
+
+    <div class="row g-4 mt-2">
+
+        <!-- Base Fare -->
+        <div class="col-md-4">
+
+            <div class="setting-box">
+
+                <div class="setting-icon">
+                    ₹
+                </div>
+
+                <label>Base Fare</label>
+
+                <input
+                    type="number"
+                    formControlName="baseFare">
+
+                <small>Minimum trip amount</small>
+
+            </div>
+
+        </div>
+
+
+        <!-- Per KM -->
+        <div class="col-md-4">
+
+            <div class="setting-box">
+
+                <div class="setting-icon">
+                    KM
+                </div>
+
+                <label>Per KM Rate</label>
+
+                <input
+                    type="number"
+                    formControlName="perKmRate">
+
+                <small>Charge per kilometer</small>
+
+            </div>
+
+        </div>
+
+
+        <!-- Commission -->
+        <div class="col-md-4">
+
+            <div class="setting-box">
+
+                <div class="setting-icon">
+                    %
+                </div>
+
+                <label>Commission Rate</label>
+
+                <input
+                    type="number"
+                    formControlName="commissionRate">
+
+                <small>Platform commission</small>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="preview">
+
+        <h5>Current Summary</h5>
+
+        <div class="preview-grid">
+
+            <div>
+                ₹{{ fareForm.value.baseFare || 0 }}
+                <span>Base Fare</span>
+            </div>
+
+            <div>
+                ₹{{ fareForm.value.perKmRate || 0 }}
+                <span>Per KM</span>
+            </div>
+
+            <div>
+                {{ fareForm.value.commissionRate || 0 }}%
+                <span>Commission</span>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</form>
+
+</div>

@@ -1,0 +1,79 @@
+<div class="wrapper d-flex">
+
+  <!-- Sidebar -->
+  <nav class="sidebar" [class.collapsed]="isCollapsed">
+
+    <div class="sidebar-header d-flex align-items-center justify-content-between p-3">
+      <h5 class="logo text-white m-auto text-center">
+        <img src="../../assets/e27bbbd3-fe74-43dd-8707-17f62674af2d.jpg" class="img-fluid w-50 rounded-4" alt="">
+      </h5>
+      <button class="btn toggle-btn" (click)="toggleSidebar()">
+        <i class="fa-solid fa-bars"></i>
+      </button>
+    </div>
+
+    <ul class="nav flex-column px-2">
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/driver/my_trips" routerLinkActive="active"
+    [routerLinkActiveOptions]="{ exact: true }">
+          <i class="fa-solid fa-table-columns me-2"></i>
+          <span>Trips</span>
+        </a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/driver/my_earnings" routerLinkActive="active">
+          <i class="fa-solid fa-id-card me-2"></i>
+          <span>Earnings</span>
+        </a>
+      </li>
+
+      <!-- <li class="nav-item">
+        <a class="nav-link" routerLink="/driver" routerLinkActive="active">
+          <i class="fa-solid fa-user-circle me-2"></i>
+          <span>Profile</span>
+        </a>
+      </li> -->
+
+      <!-- Logout (separate bottom) -->
+      <li class="nav-item mt-4">
+        <a class="nav-link text-danger" (click)="logout()" routerLinkActive="active">
+          <i class="fa-solid fa-right-from-bracket me-2"></i>
+          <span>Logout</span>
+        </a>
+      </li>
+
+    </ul>
+
+    <div class="sidebar-footer mt-auto p-3 text-white">
+      <small>Admin</small>
+    </div>
+
+  </nav>
+
+
+  <!-- Main Content -->
+  <div class="main flex-grow-1">
+
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm px-3">
+
+      <button class="btn btn-sm text-dark toggle-btn" (click)="toggleSidebar()"><i
+          class="fa-solid fa-bars"></i></button>
+
+      <span class="ms-2 fw-semibold"></span>
+
+      <div class="ms-auto d-flex align-items-center gap-3">
+      </div>
+
+    </nav>
+
+    <!-- Page Content -->
+    <div class="p-4 content-area">
+      <router-outlet></router-outlet>
+    </div>
+
+  </div>
+
+</div>

@@ -1,0 +1,165 @@
+.custom-header {
+  background: #021D49;
+  color: #fff;
+}
+
+.submit-btn {
+  background: #0ABD67;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    background: #021D49;
+  }
+}
+
+.add-btn {
+  background: #0ABD67;
+  color: #fff;
+  border: none;
+
+  &:hover {
+    background: #021D49;
+  }
+} 
+
+
+.trip-card {
+  position: relative;
+  background: #fff;
+  border-radius: 16px;
+  padding: 20px;
+  transition: 0.3s;
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.05);
+
+  &:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.1);
+  }
+}
+
+/* STATUS BADGE */
+.status-badge {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  padding: 5px 10px;
+  border-radius: 10px;
+  font-size: 12px;
+  color: #fff;
+}
+
+/* Status colors */
+.status-badge.CREATED {
+  background: #0ABD67;
+}
+
+.status-badge.COMPLETED {
+  background: #021D49;
+}
+
+.status-badge.CANCELLED {
+  background: red;
+}
+
+/* ROUTE */
+.route {
+  font-weight: 600;
+  color: #021D49;
+
+  .arrow {
+    margin: 0 8px;
+    color: #0ABD67;
+  }
+}
+
+/* CUSTOMER */
+.customer p {
+  margin: 0;
+  font-size: 14px;
+  color: #777;
+}
+
+/* DRIVER */
+.driver {
+  color: #555;
+}
+
+/* STATS */
+.stats {
+  display: flex;
+  justify-content: space-between;
+
+  div {
+    text-align: center;
+
+    small {
+      color: #888;
+    }
+
+    p {
+      margin: 0;
+      font-weight: 600;
+      color: #021D49;
+    }
+  }
+}
+
+/* FOOTER */
+.trip-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* BUTTON */
+.view-btn {
+  background: #021D49;
+  color: #fff;
+  border-radius: 10px;
+
+  &:hover {
+    background: #0ABD67;
+  }
+}
+
+.assign-section {
+  select, input {
+    border-radius: 10px;
+
+    &:focus {
+      border-color: #0ABD67;
+      box-shadow: 0 0 0 2px rgba(10, 189, 103, 0.2);
+    }
+  }
+}
+
+.assign-btn {
+  background: #0ABD67;
+  color: #fff;
+  border-radius: 10px;
+
+  &:hover {
+    background: #021D49;
+  }
+
+  &:disabled {
+    background: #ccc;
+    cursor: not-allowed;
+  }
+}
+
+.trip-name {
+  color: #0ABD67;
+  font-weight: 600;
+  font-size: 16px;
+}
+
+.btn-danger {
+  background: #021D49;
+  border: none;
+
+  &:hover {
+    background: #0ABD67;
+  }
+}

@@ -1,0 +1,123 @@
+<div class="container-fluid py-4">
+    <div class="row g-4">
+
+        <div class="col-md-6 col-lg-4" *ngFor="let trip of trips">
+
+            <div class="trip-card">
+
+                <!-- Header -->
+                <div class="trip-header">
+                    <div>
+                        <h5>{{ trip.customerName }}</h5>
+                        <span>{{ trip.status }}</span>
+                    </div>
+
+                    <div class="trip-status" [ngClass]="{
+              'completed': trip.status === 'COMPLETED',
+              'pending': trip.status !== 'COMPLETED'
+            }">
+                        {{ trip.status }}
+                    </div>
+                </div>
+
+                <!-- Route -->
+                <div class="trip-route">
+                    <div>
+                        <small>Pickup</small>
+                        <p>{{ trip.pickupLocation }}</p>
+                    </div>
+
+                    <div class="route-icon">→</div>
+
+                    <div>
+                        <small>Drop</small>
+                        <p>{{ trip.dropLocation }}</p>
+                    </div>
+                </div>
+
+                <!-- Details -->
+                <div class="trip-details">
+
+                    <div class="detail-box">
+                        <label>Distance</label>
+                        <h6>{{ trip.distance }} KM</h6>
+                    </div>
+
+                    <div class="detail-box">
+                        <label>Fare</label>
+                        <h6>₹{{ trip.fare }}</h6>
+                    </div>
+
+                    <div class="detail-box earning">
+                        <label>Earning</label>
+                        <h6>₹{{ trip.driverEarning }}</h6>
+                    </div>
+
+                </div>
+
+                <!-- Footer -->
+                <div class="trip-footer">
+
+                    <div class="trip-time">
+                        <small>Started</small>
+                        <p>{{ trip.startTime | date:'dd MMM y, hh:mm a' }}</p>
+                    </div>
+
+                    <div class="trip-time">
+                        <small>Ended</small>
+                        <p>{{ trip.endTime | date:'dd MMM y, hh:mm a' }}</p>
+                    </div>
+
+                </div>
+
+                <div class="trip-actions">
+
+                    <!-- Accept -->
+                    <button *ngIf="trip.status === 'ASSIGNED'" class="accept-btn"
+                        (click)="tripAction('accept', trip._id)">
+
+                        Accept Trip
+                    </button>
+
+
+                    <!-- Start -->
+                    <button *ngIf="trip.status === 'ACCEPTED'" class="start-btn"
+                        (click)="tripAction('start', trip._id)">
+
+                        Start Trip
+                    </button>
+
+
+                    <!-- Complete -->
+                    <button *ngIf="trip.status === 'STARTED'" class="complete-btn"
+                        (click)="tripAction('complete', trip._id)">
+
+                        Complete Trip
+                    </button>
+
+
+                    <!-- Cancel -->
+                    <button *ngIf="
+  trip.status !== 'COMPLETED' &&
+  trip.status !== 'EN_ROUTE'
+  " class="cancel-btn" (click)="tripAction('cancel', trip._id)">
+
+                        Cancel
+
+                    </button>
+
+
+                    <!-- Completed -->
+                    <button *ngIf="trip.status === 'COMPLETED'" class="done-btn">
+
+                        ✓ Trip Completed
+                    </button>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
